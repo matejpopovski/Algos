@@ -1,0 +1,22 @@
+class Solution {
+    public int search(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length-1;
+        return binarySearchRecursive(nums, left, right, target);
+    }
+
+    public int binarySearchRecursive(int[] nums, int left, int right, int target){
+
+        if(left > right){
+            return -1;
+        }
+        if(target == nums[left+(right-left)/2]){
+            return left+(right-left)/2;
+        }
+        if(nums[left+(right-left)/2] < target){
+            return binarySearchRecursive(nums, left+(right-left)/2 + 1, right, target);
+        }
+        return binarySearchRecursive(nums, left, left+(right-left)/2 - 1, target);
+
+    }
+}
