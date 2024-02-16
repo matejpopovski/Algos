@@ -35,3 +35,4 @@ list1 = []
 for x in range(15):
     list1.append(randint())
 mergesort(list1)
+print(mergesort(list1))
