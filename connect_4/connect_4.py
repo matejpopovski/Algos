@@ -52,17 +52,30 @@ def drop_piece(board, col, player):
             return True
     return False
 
-winner = 0
-def define_winner(board, winner):
+def define_winner(board):
     for row in range(ROWS):
         for col in range(COLS):
-            if row+3 < ROWS:
-                if board[row][col] == 1 and board[row+1][col] == 1 and board[row+2][col] == 1 and board[row+3][col] == 1:
-                    winner = 1
-                if board[row][col] == 2 and board[row+1][col] == 2 and board[row+2][col] == 2 and board[row+3][col] == 2:
-                    winner = 2
-    return winner
+            player = board[row][col]
+            if player == 0:
+                continue 
 
+            if row + 3 < ROWS:
+                if all(board[row + i][col] == player for i in range(4)):
+                    return player
+
+            if col + 3 < COLS:
+                if all(board[row][col + i] == player for i in range(4)):
+                    return player
+
+            if row + 3 < ROWS and col + 3 < COLS:
+                if all(board[row + i][col + i] == player for i in range(4)):
+                    return player
+
+            if row - 3 >= 0 and col + 3 < COLS:
+                if all(board[row - i][col + i] == player for i in range(4)):
+                    return player
+
+    return 0 
 
 running = True
 while running:
