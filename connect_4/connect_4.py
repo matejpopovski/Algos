@@ -93,9 +93,8 @@ while running:
                 current_player = 2 if current_player == 1 else 1
     
     draw_board()
-    winner = define_winner(board, winner)
-    if winner != 0:
-        print(f"Player {winner} wins!")
+    if define_winner(board) != 0:
+        print(f"Player {define_winner(board)} wins!")
         pygame.quit()
         sys.exit()
 
