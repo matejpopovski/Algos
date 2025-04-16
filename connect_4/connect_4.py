@@ -38,9 +38,11 @@ def get_column_from_click(pos):
 
 def drop_piece(board, col, player):
     for row in reversed(range(ROWS)):
-        
+        if board[row][col] == 0:
+            board[row][col] = player
+            return True
+    return False
 
-        
 
 running = True
 while running:
