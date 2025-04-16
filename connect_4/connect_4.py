@@ -16,6 +16,8 @@ BG_COLOR = (30, 30, 60)
 LINE_COLOR = (0, 0, 0)
 CIRCLE_COLOR = (200, 200, 200)
 
+board = [[0 for _ in range(COLS)] for _ in range(ROWS)]
+
 screen = pygame.display.set_mode(WINDOW_SIZE)
 pygame.display.set_caption("Connect 4")
 clock = pygame.time.Clock()
@@ -34,7 +36,8 @@ def get_column_from_click(pos):
     col = x // CELL_SIZE
     return col
 
-
+def drop_piece(board, col, player):
+    
 
 
 
