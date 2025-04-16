@@ -17,6 +17,7 @@ LINE_COLOR = (0, 0, 0)
 CIRCLE_COLOR = (200, 200, 200)
 
 board = [[0 for _ in range(COLS)] for _ in range(ROWS)]
+current_player = 1 
 
 screen = pygame.display.set_mode(WINDOW_SIZE)
 pygame.display.set_caption("Connect 4")
@@ -28,7 +29,15 @@ def draw_board():
         for col in range(COLS):
             x = col * CELL_SIZE + CELL_SIZE // 2
             y = row * CELL_SIZE + CELL_SIZE // 2
-            pygame.draw.circle(screen, CIRCLE_COLOR, (x, y), CIRCLE_RADIUS)
+            
+            if board[row][col] == 0:
+                color = CIRCLE_COLOR
+            elif board[row][col] == 1:
+                color = (255, 0, 0)  # Red
+            elif board[row][col] == 2:
+                color = (255, 255, 0)  # Yellow
+
+            pygame.draw.circle(screen, color, (x, y), CIRCLE_RADIUS)
     pygame.display.update()
 
 def get_column_from_click(pos):
@@ -56,6 +65,8 @@ while running:
             pos = pygame.mouse.get_pos()
             col = get_column_from_click(pos)
             print(f"Clicked on column: {col}")
+            if drop_piece(board, col, current_player):
+                current_player = 2 if current_player == 1 else 1
     
     draw_board()
 
