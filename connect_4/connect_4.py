@@ -52,6 +52,8 @@ def drop_piece(board, col, player):
             return True
     return False
 
+#def define_winner(board):
+
 
 running = True
 while running:
@@ -68,10 +70,12 @@ while running:
             if drop_piece(board, col, current_player):
                 current_player = 2 if current_player == 1 else 1
     
+    print(board)
     draw_board()
 
 pygame.quit()
 sys.exit()
+
 
 
 
