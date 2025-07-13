@@ -3,19 +3,26 @@ import matplotlib.pyplot as plt
 
 print("hello 1")
 
-graph = {
-    'A': [('B', 2), ('C', 5)],
-    'B': [('A', 2), ('C', 6), ('D', 1)],
-    'C': [('A', 5), ('B', 6), ('D', 3)],
-    'D': [('B', 1), ('C', 3)],
-    'E': [('D', 4), ('B', 6)]
-}
+# graph = {
+#     'A': [('B', 2), ('C', 5)],
+#     'B': [('A', 2), ('C', 6), ('D', 1)],
+#     'C': [('A', 5), ('B', 6), ('D', 3)],
+#     'D': [('B', 1), ('C', 3)],
+#     'E': [('D', 4), ('B', 6)]
+# }
 
-G = nx.Graph()
+print(type(graph))
 
-for node in graph:
-    for neighbor, weight in graph[node]:
-        G.add_edge(node, neighbor, weight=weight)
+
+
+
+
+
+# G = nx.Graph()
+
+# for node in graph:
+#     for neighbor, weight in graph[node]:
+#         G.add_edge(node, neighbor, weight=weight)
 
 
 
